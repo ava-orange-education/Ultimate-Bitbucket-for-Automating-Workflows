@@ -1,0 +1,17 @@
+modules:
+  bitbucket:repoCodeOverviewCard:
+    - key: hello-world-app-hello-world-repository-code-overview-card
+      resource: main
+      resolver:
+        function: resolver
+      render: native
+      title: Forge app for Mia
+  function:
+    - key: resolver
+      handler: index.handler
+resources:
+  - key: main
+    path: src/frontend/index.jsx
+app:
+  id: ari:cloud:ecosystem::app/your-app-id
+  name: "My Bitbucket Forge App"
