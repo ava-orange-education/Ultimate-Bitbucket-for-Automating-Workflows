@@ -1,0 +1,18 @@
+permissions:
+  scopes:
+    - read:pullrequest:bitbucket
+    - read:repository:bitbucket
+modules:
+  bitbucket:mergeCheck:
+    - key: check-email-domain
+      function: main
+      name: Check commit author email domain
+      description: Ensure all commit authors have an email domain of 'test.com'
+      triggers:
+        - on-merge
+  function:
+    - key: main
+      handler: index.run
+app:
+  runtime:
+    name: nodejs18.x
