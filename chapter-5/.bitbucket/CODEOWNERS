@@ -1,0 +1,4 @@
+*          sundararajurama@gmail.com suhasrajmm@gmail.com 
+foo.py     suhasrajmm@gmail.com # Plain email addresses
+bar.py     @suhasrajmm           # Prefix usernames with `@`
+baz.py     @workspace-slug/group-slug     # Prefix group slug with the workspace slug eg: bitbucket-automation-tutorial/code-reviewers
