@@ -1,0 +1,27 @@
+#Get repositories created after January 1, 2024
+curl -u username:app_password "https://api.bitbucket.org/2.0/repositories/workspace?q=created_on>2024-01-01"
+
+#Fetch repositories sorted by creation date (newest first)
+curl -u username:app_password "ht
+
+#Retrieve 50 repositories per page
+curl -u username:app_password "https://api.bitbucket.org/2.0/repositories?pagelen=50"
+
+#Trigger a Pipeline for the master Branch
+curl -X POST -u username:app_password \
+       -H "Content-Type: application/json" \
+       -d '{
+             "target": {
+               "ref_type": "branch",
+               "type": "pipeline_ref_target",
+               "ref_name": "master"
+             }
+           }' \
+       https://api.bitbucket.org/2.0/repositories/bitbucket-automation-tutorial/first-repository/pipelines/ | jq
+
+#Retrieve Workspace-Level Permissions
+#Endpoint: GET /workspaces/{workspace}/permissions
+
+#This API fetches a list of users and their permissions at the workspace level.
+curl -X GET -u username:app_password \
+    https://api.bitbucket.org/2.0/workspaces/bitbucket-automation-tutorial/permissions | jq
