@@ -1,0 +1,16 @@
+definitions:
+  caches:
+    sample-cache:
+      key:
+        files: # the files you want pipelines to check for changes when deciding whether to use the cache, or download fresh dependencies.
+          - package.json
+      path: build # the directory you want to be cached.
+
+pipelines:
+  default:
+    - step:
+        caches:
+          - sample-cache
+        script:
+          - npm install esbuild
+          - node node-build/build.js
