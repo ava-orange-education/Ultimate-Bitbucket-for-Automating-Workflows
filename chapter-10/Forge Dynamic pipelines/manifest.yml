@@ -1,0 +1,14 @@
+modules:
+  bitbucket:pipeline:dynamic:
+    - key: dynamic-step-injector
+      function: main
+      name: Dynamic Pipeline Modifier
+
+functions:
+  main:
+    handler: index.main
+
+permissions:
+  scopes:
+    - read
+    - write
