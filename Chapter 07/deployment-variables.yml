@@ -1,0 +1,12 @@
+pipelines:
+  default:
+    - step:
+        name: Deploy with Secret Key
+        deployment: dev-env
+        script:
+          - echo $DEPLOYMENT_SECRET_KEY
+    - step:
+        name: Deploy with Secret Key
+        deployment: staging-env
+        script:
+          - echo $DEPLOYMENT_SECRET_KEY

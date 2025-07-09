@@ -1,0 +1,15 @@
+pipelines:
+  default:
+    - step:
+        name: Deploy to EKS
+        deployment: dev-env
+        script:
+          - pipe: atlassian/aws-eks-kubectl-run:3.0.0
+            variables:
+              AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+              AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+              AWS_DEFAULT_REGION: "us-east-1"
+              CLUSTER_NAME: "floral-dance-duck"
+              KUBECTL_COMMAND: "apply"
+              RESOURCE_PATH: "hello-world-pod.yaml"
+              DEBUG: "true"

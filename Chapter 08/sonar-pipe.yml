@@ -1,0 +1,17 @@
+image: node:18
+pipelines:
+  default:
+    - step:
+        name: SonarCloud Analysis
+        clone:
+          depth: full    # SonarQube Cloud scanner needs the full history to assign issues properly
+        size: 2x
+        script:
+          - npm install
+          - npm test
+          - pipe: sonarsource/sonarcloud-scan:3.0.0
+          - pipe: sonarsource/sonarcloud-quality-gate:0.1.6
+definitions:
+  services:
+    docker:
+      memory: 5124 #set memory based on resource requirement to run the sonar scan pipe

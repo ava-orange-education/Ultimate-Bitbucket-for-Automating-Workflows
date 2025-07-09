@@ -1,0 +1,236 @@
+# Important and Unique Git Commands from Chapter 1
+
+## Git on Windows
+
+```bash
+Open Command Prompt or PowerShell and type git --version to verify that Git has been installed correctly.
+```
+
+## Git on macOS
+
+```bash
+If Homebrew is installed on your system, you can install Git by running the command brew install git in the Terminal.
+```
+
+```bash
+Open Terminal and type git --version to confirm that Git is installed.
+```
+
+## Git on Linux
+
+```bash
+Open a terminal and type git --version to ensure that Git is installed properly.
+```
+
+## Create a Local Git Repository
+
+```bash
+Initialize the repository: After running the git init command, you should see a message like:
+```
+
+```bash
+git init
+```
+
+## Setting the Default Branch
+
+```bash
+hint: 	git config --global init.defaultBranch <name>
+```
+
+## Git Configuration (Config)
+
+```bash
+The git config command allows you to configure Git settings and preferences on your system. These settings determine how Git behaves, as well as storing user information such as your name and email, which are used to tag commits.
+```
+
+## Common Usage of git config
+
+```bash
+Common Usage of git config
+```
+
+```bash
+git config --global user.email "youremail@example.com"
+```
+
+```bash
+git config --global user.name "Your Name"
+```
+
+## Types of Git Configuration
+
+```bash
+git config
+```
+
+```bash
+git config --global
+```
+
+```bash
+git config --system
+```
+
+## .git folder
+
+```bash
+.git folder
+```
+
+```bash
+Now that we have successfully created a Git repository, let's explore the contents of this repository. Since we haven’t added any data yet, you might wonder what an empty repository contains. When you initialize a repository with git init, a .git directory is created, which is hidden by default. This folder contains all the essential files Git needs to manage the version history of your project.
+```
+
+## Listing the working directory contents
+
+```bash
+Figure 1.8: .git directory contents
+
+You’ll notice that the .git folder is present, containing various files and subdirectories. These elements are crucial for managing the internal workings of Git. Let’s break down the contents of the .git directory and understand the role each file or folder plays.
+```
+
+## Understanding the Contents of the .git Directory:
+
+```bash
+Understanding the Contents of the .git Directory:
+```
+
+## Git Commit
+
+```bash
+Having discussed the contents of an empty Git repository, let's proceed by creating a commit and observing how these actions affect the .git folder. This will help us understand how Git manages project history.
+```
+
+## Creating and Committing a File
+
+```bash
+(use "git add <file>..." to include in what will be committed)
+```
+
+```bash
+(use "git rm --cached <file>..." to unstage)
+```
+
+```bash
+Run git status again to check the staging area:
+```
+
+```bash
+Run git status to confirm that the working directory is clean:
+```
+
+```bash
+The git log command shows details about the commit, including the commit hash, author, date, and commit message. HEAD indicates that this is the latest commit on the master branch.
+```
+
+```bash
+Use git log to view the commit history:
+```
+
+```bash
+Use git status to see the current state of your repository:
+```
+
+```bash
+git add bitbucket.txt
+```
+
+```bash
+git commit -m "first commit"
+```
+
+```bash
+git log
+```
+
+```bash
+git status
+```
+
+```bash
+nothing added to commit but untracked files present (use "git add" to track)
+```
+
+## .git Folder Post-Commit
+
+```bash
+.git Folder Post-Commit
+```
+
+```bash
+After making a commit, Git structures and stores the commit information as objects within the .git directory. This section explores how Git manages these objects and how they are organized in the repository.
+```
+
+## Object Types and Their Content
+
+```bash
+git cat-file -t 3a45e6ec9f78af5bd36766a94d50124b75bf3725
+```
+
+```bash
+git cat-file blob ce013625030ba8dba906f756967f9e9ca394464a
+```
+
+```bash
+git cat-file commit b17872af155bb9d616850be0228cd03e4b5def0d
+```
+
+```bash
+git ls-tree 3a45e6ec9f78af5bd36766a94d50124b75bf3725
+```
+
+## Git Branch
+
+```bash
+In the previous example, we committed changes to the default branch master and explored how Git tracks different objects in the .git folder. Now, we will create a new branch called develop and explore the internal Git structure when switching between branches and committing changes.
+```
+
+## Create and Switch Branches
+
+```bash
+If you run git branch -a again:
+```
+
+```bash
+git branch -a
+```
+
+```bash
+git branch develop
+```
+
+```bash
+git checkout develop
+```
+
+
+## List commits history
+
+```bash
+git log
+```
+
+
+## Understanding Merge Types
+
+
+```bash
+git merge --squash develop
+```
+
+```bash
+git merge develop
+```
+
+
+## Working of Git Rebase
+
+```bash
+git checkout develop
+```
+
+```bash
+git rebase master
+```
+

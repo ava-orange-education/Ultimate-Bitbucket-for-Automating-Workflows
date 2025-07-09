@@ -1,0 +1,15 @@
+#bitbucket-pipelines.yml file:
+
+<<<<<<< HEAD
+ custom:
+   deployment:
+     step:
+       name: deployment to staging
+       script:
+         - echo “Hello, deployed to staging!”
+=======
+default:
+  step:
+   script:
+     - echo “api pipeline trigger”
+>>>>>>> fad5ddcc1c78d89c0e26c1cf58f751be85b57d41

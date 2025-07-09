@@ -1,0 +1,16 @@
+pipelines:
+  default:
+    - step:
+        name: "Scan Open Source Dependencies"
+        caches:
+          - node
+        script:
+          - pipe: snyk/snyk-scan:0.4.3
+            variables:
+              SNYK_TOKEN: $SNYK_TOKEN
+              LANGUAGE: "npm"
+              TARGET_FILE: "package.json"
+              CODE_INSIGHTS_RESULTS: "true"
+              SEVERITY_THRESHOLD: "high"
+              DONT_BREAK_BUILD: "true"
+              MONITOR: "false"

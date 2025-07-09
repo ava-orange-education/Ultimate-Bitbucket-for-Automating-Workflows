@@ -1,0 +1,112 @@
+# Git Commands from Chapter 2
+
+## 
+
+```bash
+git clone https://bitbucket-automation-tut-admin@bitbucket.org/bitbucket-automation-tutorial/first-repository.git
+```
+
+```bash
+git clone git@bitbucket.org:bitbucket-automation-tutorial/first-repository.git
+```
+
+```bash
+git remote add origin https://bitbucket-automation-tut-admin@bitbucket.org/bitbucket-automation-tutorial/first-repository.git
+```
+
+```bash
+git push -u origin master
+```
+
+```bash
+git remote -v
+```
+
+```bash
+git fetch origin
+```
+
+```bash
+git status
+```
+
+```bash
+git log --oneline origin/master..HEAD
+```
+
+```bash
+git merge origin/master
+```
+
+```bash
+git rebase origin/master
+```
+
+```bash
+git add <conflicted-file>
+```
+
+```bash
+git merge --continue  # For merging
+```
+
+```bash
+git rebase --continue  # For rebasing
+```
+
+```bash
+git push origin master
+```
+
+```bash
+git branch -a
+```
+
+```bash
+git pull command
+```
+
+```bash
+git pull origin master
+```
+
+```bash
+git pull is a combined command that fetches and merges remote changes into the current branch.
+```
+
+```bash
+git pull origin master --allow-unrelated-histories is useful when linking repositories with unrelated histories.
+```
+
+```bash
+git lfs install
+```
+
+```bash
+git lfs track "*.mp4"
+```
+
+```bash
+git lfs track "*.zip"
+```
+
+```bash
+git add .gitattributes
+```
+
+```bash
+git commit -m "Track large files with Git LFS"
+```
+
+```bash
+git add <large-file>
+```
+
+```bash
+git commit -m "Add large file"
+```
+
+```bash
+git push origin <branch>
+```
+

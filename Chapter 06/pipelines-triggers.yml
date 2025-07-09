@@ -1,0 +1,44 @@
+#default
+pipelines:
+  default:
+      - step:
+          name: "Run Tests and Build"
+          script:
+            - echo “build successful”
+
+
+#Branch-Specific build
+
+pipelines:
+  branches:
+    staging:
+      - step:
+          script:
+            - ./deploy-staging.sh
+    tags:
+      ‘test’:
+         - step:
+              script:
+                 - ./deploy-production.sh
+
+                 
+#pull requests based build
+pipelines:
+  pull-requests:
+    develop:
+      - step:
+          name: Build for develop branch pull request
+          script:
+            - echo "Hello, develop branch PR!"
+
+            
+
+#custom builds
+pipelines:
+  custom:
+    deployment:
+      - step:
+          name: deployment
+          script:
+             - echo "Hello, deployed to staging!"
+

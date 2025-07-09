@@ -1,0 +1,9 @@
+pipelines:
+  default:
+    - parallel:
+        - step:
+            script:
+              - echo “step 1”
+        - step:
+            script:
+              - echo “step 2”

@@ -1,0 +1,28 @@
+image: atlassian/default-image:4
+
+pipelines:
+  default:
+    - parallel:
+        - step:
+            name: Build and Test
+            runs-on:
+              - self.hosted
+              - linux.arm64
+            script:
+              - npm install
+              - npm run build
+              - npm run test
+            artifacts:
+              - build/** # Replace with your actual build output path
+
+        - step:
+            name: Deployment to S3
+            script:
+              - pipe: atlassian/aws-s3-deploy:1.1.0
+                variables:
+                  AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+                  AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                  AWS_DEFAULT_REGION: "us-east-1" # Replace with your region
+                  S3_BUCKET: "<your-s3-bucket-name>" # Replace with your S3 bucket
+                  LOCAL_PATH: "build/" # Path to your build output
+                  S3_PATH: "my-app/" # Path in the S3 bucket where files will be deployed

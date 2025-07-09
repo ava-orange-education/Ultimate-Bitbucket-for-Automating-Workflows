@@ -1,0 +1,8 @@
+pipelines:
+  default:
+    - step:
+        caches:
+          - node
+        script:
+          - npm install esbuild
+          - node node-build/build.js

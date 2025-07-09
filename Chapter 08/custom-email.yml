@@ -1,0 +1,21 @@
+image: node:18
+pipelines:
+  default:
+    - step:
+        name: Build & Test
+        script:
+          - echo "Running build and tests..."
+          - npm install
+          - npm test
+        after-script:
+          - pipe: atlassian/email-notify:0.13.2
+            variables:
+              USERNAME: 'myemail@example.com'
+              PASSWORD: $SMTP_PASSWORD
+              FROM: 'myemail@example.com'
+              TO: 'recipient@example.com'
+              HOST: 'smtp.gmail.com'
+              PORT: '587'
+              TLS: 'true'
+              SUBJECT: 'Bitbucket Pipeline Notification'
+              BODY_PLAIN: 'The build on branch ${BITBUCKET_BRANCH} has completed. Check logs here: https://bitbucket.org/${BITBUCKET_WORKSPACE}/${BITBUCKET_REPO_SLUG}/addon/pipelines/home#!/results/${BITBUCKET_BUILD_NUMBER}'

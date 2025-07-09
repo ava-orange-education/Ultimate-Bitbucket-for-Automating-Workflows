@@ -1,0 +1,13 @@
+pipelines:
+  default:
+    - step:
+        name: Deploy to S3
+        deployment: dev-env
+        script:
+          - pipe: atlassian/aws-s3-deploy:1.6.2
+            variables:
+              AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+              AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+              AWS_DEFAULT_REGION: "ap-southeast-2"
+              S3_BUCKET: "bitbucket-automate"
+              LOCAL_PATH: "build/"
